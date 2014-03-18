@@ -22,11 +22,15 @@
 from __future__ import with_statement # for python 2.5
 __author__ = 'Daniel M. Lofaro'
 
+from PyQt4 import QtCore, QtGui
 import time
 import openravepy
+import numpy as np
 if not __openravepy_build_doc__:
     from openravepy import *
     from numpy import *
+
+
 
 def main(env,options):
     "Main example code."
@@ -35,17 +39,35 @@ def main(env,options):
     if options.manipname is not None:
         robot.SetActiveManipulator(options.manipname)
 
-    # generate the ik solver
+    sensors = env.GetSensors()
+    ienablesensor = 0
+    for i,sensor in enumerate(sensors):
+        if i==ienablesensor:
+            sensor.Configure(Sensor.ConfigureCommand.PowerOn)
+            sensor.Configure(Sensor.ConfigureCommand.RenderDataOn)
+        else:
+            sensor.Configure(Sensor.ConfigureCommand.PowerOff)
+            sensor.Configure(Sensor.ConfigureCommand.RenderDataOff)
+        print 'showing sensor %s, !!!'%(sensors[ienablesensor].GetName())
+
+
+# generate the ik solver
     ikmodel = databases.inversekinematics.InverseKinematicsModel(robot, iktype=IkParameterization.Type.TranslationXY2D)
     if not ikmodel.load():
         ikmodel.autogenerate()
 
+
+
+    data = sensor.GetSensorData()
+
+#    data = array(robot.GetAttachedSensors()[0].GetData().imagedata)
     while True:
         with env:
-            d = [0,1.57,0]
+#            robot.GetAttachedSensors()[0].GetData().imagedata
+            d = [0,np.random.normal(),0]
             robot.SetDOFValues(d,ikmodel.manip.GetArmIndices())
             env.UpdatePublishedBodies()
-            time.sleep(0.05)
+            time.sleep(0.1)
         h=None
 
 from optparse import OptionParser
