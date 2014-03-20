@@ -22,7 +22,7 @@
 from __future__ import with_statement # for python 2.5
 __author__ = 'Daniel M. Lofaro'
 
-from PyQt4 import QtCore, QtGui
+#from PyQt4 import QtCore, QtGui
 import time
 import openravepy
 import numpy as np
