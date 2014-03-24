@@ -40,5 +40,5 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 add_library(world_edit SHARED world_edit.cc)
 target_link_libraries(world_edit ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
 
-add_library(camera_move SHARED camera_move.cc)
-target_link_libraries(camera_move ${GAZEBO_libraries})
+#add_library(camera_move SHARED camera_move.cc)
+#target_link_libraries(camera_move ${GAZEBO_libraries})
