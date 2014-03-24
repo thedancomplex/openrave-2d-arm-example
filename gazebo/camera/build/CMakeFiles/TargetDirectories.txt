@@ -1,2 +1,0 @@
-/home/student/projects/openrave-2d-arm-example/gazebo/camera/build/CMakeFiles/camera_dump.dir
-/home/student/projects/openrave-2d-arm-example/gazebo/camera/build/CMakeFiles/camera_move.dir
