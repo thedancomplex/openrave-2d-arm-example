@@ -27,7 +27,6 @@
           </geometry>
         </visual>
 
-
 <!-- Caster -->
       <collision name='caster_collision'>
         <pose>-0.15 0 -0.05 0 0 0</pose>
@@ -147,25 +146,42 @@
 -->
 
 
+
+
+
   <!-- Camera -->
+<!--
+<link name="cam_link">
+  <sensor name='cam_sensor1' type='camera' always_on='1' update_rate='10'>
+    <origin pose='0 0 0 0 0 1.57'/>
+      <camera>
+        <horizontal_fov angle='1.57'/>
+        <image width='640' height='480' format='R8G8B8'/>
+        <clip near='0.5' far='5'/>
+      </camera>
+     <plugin name='camera_dump' filename='libcamera_dump.so'/>
+  </sensor>
+</link>
+-->
    <include>
       <uri>model://camera</uri>
       <pose>0.0 -0.05 0.2 0 0 0</pose>
       <name>camera</name>
     </include>
-<joint name="camera_joint" type="revolute">
-  <child>camera::link</child>
-  <parent>chassis</parent>
-  <axis>
-    <xyz>0 0 1</xyz>
-    <limit>
-      <upper>0</upper>
-      <lower>0</lower>
-    </limit>
-  </axis>
-</joint>
-
+      <plugin name='camera_dump' filename='libcamera_dump.so'/>
+  <joint name="camera_joint" type="revolute">
+    <child>camera::link</child>
+    <parent>chassis</parent>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <upper>0</upper>
+        <lower>0</lower>
+      </limit>
+    </axis>
+  </joint>
     <plugin filename="libmodel_diff_drive.so" name="model_diff_drive_plugin">
+
       <left_wheel_hinge>left_wheel_hinge</left_wheel_hinge>
       <right_wheel_hinge>right_wheel_hinge</right_wheel_hinge>
     </plugin>
