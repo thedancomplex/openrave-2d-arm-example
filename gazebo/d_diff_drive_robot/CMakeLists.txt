@@ -22,6 +22,6 @@ endif()
 include_directories(${GAZEBO_INCLUDE_DIRS})
 link_directories(${GAZEBO_LIBRARY_DIRS})
 
-add_library(model_push SHARED model_diff_drive.cc)
+add_library(model_diff_drive SHARED model_diff_drive.cc)
 target_link_libraries(model_diff_drive ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTUBUF_LIBRARIES})
 

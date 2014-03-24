@@ -13,7 +13,7 @@
 
     <model name="DiffDrive">
       <include>
-        <uri>model://diff_drive_robot</uri>
+        <uri>model://d_diff_drive_robot</uri>
       </include>
       <pose>0 0 0.5 0 0 0</pose>
       <plugin name="model_diff_drive" filename="build/libmodel_diff_drive.so"/>

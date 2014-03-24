@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
-  <model name="diff_drive_robot">
+  <model name="d_diff_drive_robot">
 <!-- No Physics -->
 <!--    <static>true</static>
 -->
