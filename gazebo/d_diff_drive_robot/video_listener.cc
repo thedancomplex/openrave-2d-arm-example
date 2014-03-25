@@ -29,7 +29,33 @@ int i = 0;
 void cb(ConstImageStampedPtr &_msg)
 {
   // Dump the message contents to stdout.
-  printf("%i",i++);
+// char filename[256];
+
+  size_t size;
+
+
+  int ssize = sizeof(_msg->image().data()) - sizeof(_msg->image().data()) +
+         _msg->image().data().size();
+
+  printf("%i - %i - w: %i - h: %i \n\r",i++, ssize, _msg->image().width(), _msg->image().height());
+// char filename[256];
+
+
+  // Save frames
+  /*if (this->save)
+  {
+    snprintf(filename, sizeof(filename), "click-%04d.ppm", this->frameno++);
+    this->SaveFrame(filename);
+  }*/
+  // Save frames
+  /*if (this->save)
+  {
+    snprintf(filename, sizeof(filename), "click-%04d.ppm", this->frameno++);
+    this->SaveFrame(filename);
+  }*/
+
+
+
 }
 
 /////////////////////////////////////////////////
