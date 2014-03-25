@@ -163,12 +163,13 @@
   </sensor>
 </link>
 -->
+
    <include>
       <uri>model://camera</uri>
       <pose>0.0 -0.05 0.2 0 0 0</pose>
       <name>camera</name>
-    </include>
       <plugin name='camera_dump' filename='libcamera_dump.so'/>
+    </include>
   <joint name="camera_joint" type="revolute">
     <child>camera::link</child>
     <parent>chassis</parent>
@@ -180,6 +181,8 @@
       </limit>
     </axis>
   </joint>
+
+
     <plugin filename="libmodel_diff_drive.so" name="model_diff_drive_plugin">
 
       <left_wheel_hinge>left_wheel_hinge</left_wheel_hinge>
