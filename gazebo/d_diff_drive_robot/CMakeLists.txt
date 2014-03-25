@@ -52,17 +52,22 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 
 
 # camera plugin
-add_library(camera_dump SHARED camera_dump.cc)
-target_link_libraries(camera_dump ${GAZEBO_libraries} CameraPlugin)
+#add_library(camera_dump SHARED camera_dump.cc)
+#target_link_libraries(camera_dump ${GAZEBO_libraries} CameraPlugin)
 
 # compile plugin
 add_library(model_diff_drive SHARED model_diff_drive.cc)
 target_link_libraries(model_diff_drive ${GAZEBO_LIBRARIES})
 
 add_executable(video_listener video_listener.cc)
-target_link_libraries(video_listener ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread)
+target_link_libraries(video_listener ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread ach)
 
 #add_executable(cview cview.cc)
 #target_link_libraries(cview ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread)
 
+add_library(camera_dump SHARED camera_dump.cc)
+target_link_libraries(camera_dump ${GAZEBO_libraries} CameraPlugin)
+
+add_library(camera_move SHARED camera_move.cc)
+target_link_libraries(camera_move ${GAZEBO_libraries})
 

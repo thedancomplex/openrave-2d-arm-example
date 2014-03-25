@@ -63,12 +63,12 @@ namespace gazebo
     // Called by the world update start event
     public: void OnUpdate()
     {
-      this->left_wheel_joint_->SetMaxForce(0, 10);
-      this->right_wheel_joint_->SetMaxForce(0, 10);
-      this->left_wheel_joint_->SetForce(0, -0.5);
-      //this->left_wheel_joint_->SetForce(0, 0.2);
-      this->right_wheel_joint_->SetVelocity(0,0.5);
-      //this->right_wheel_joint_->SetForce(0, -0.2);
+      //this->left_wheel_joint_->SetMaxForce(0, 10);
+      //this->right_wheel_joint_->SetMaxForce(0, 10);
+      //this->left_wheel_joint_->SetForce(0, -0.5);
+      this->left_wheel_joint_->SetForce(0, 0.2);
+      //this->right_wheel_joint_->SetVelocity(0,0.5);
+      this->right_wheel_joint_->SetForce(0, -0.2);
     }
 
     // Pointer to the model

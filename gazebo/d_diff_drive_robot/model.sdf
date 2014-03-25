@@ -159,7 +159,7 @@
         <image width='640' height='480' format='R8G8B8'/>
         <clip near='0.5' far='5'/>
       </camera>
-     <plugin name='camera_dump' filename='libcamera_dump.so'/>
+    <plugin name='camera_dump' filename='libcamera_dump.so'/>
   </sensor>
 </link>
 -->
@@ -168,9 +168,9 @@
       <uri>model://camera</uri>
       <pose>0.0 -0.05 0.2 0 0 0</pose>
       <name>camera</name>
-      <plugin name='camera_dump' filename='libcamera_dump.so'/>
+<!--      <plugin name='camera_dump' filename='libcamera_dump.so'/> -->
     </include>
-  <joint name="camera_joint" type="revolute">
+  <joint name="camera_joint_2" type="revolute">
     <child>camera::link</child>
     <parent>chassis</parent>
     <axis>
@@ -183,10 +183,17 @@
   </joint>
 
 
+
+
+
+
+
     <plugin filename="libmodel_diff_drive.so" name="model_diff_drive_plugin">
 
       <left_wheel_hinge>left_wheel_hinge</left_wheel_hinge>
       <right_wheel_hinge>right_wheel_hinge</right_wheel_hinge>
     </plugin>
   </model>
+
+
 </sdf>
